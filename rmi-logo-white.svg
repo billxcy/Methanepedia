@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 86" role="img" aria-labelledby="rmiWhiteTitle">
+    <title id="rmiWhiteTitle">RMI</title>
+    <rect width="260" height="86" fill="none"/>
+    <g fill="#ffffff">
+        <path d="M28 18h54c18 0 30 10 30 26 0 11-6 20-17 24l20 0v0h-30L69 50h-17v18H28V18zm24 17v17h25c7 0 11-3 11-8s-4-9-11-9H52z"/>
+        <path d="M123 18h25l22 30 22-30h25v50h-23V45l-17 23h-14l-17-23v23h-23V18z"/>
+        <path d="M226 18h24v50h-24V18z"/>
+    </g>
+</svg>

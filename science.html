@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="了解甲烷的温室效应、排放来源与长期减排路径。">
+    <title>甲烷科学 | Methanepedia</title>
+    <link rel="icon" href="logo-white.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-shell">
+            <a class="brand" href="index.html" aria-label="Methanepedia 首页">
+                <img src="Large_JPG-RMI_logo_PrimaryUse.JPG" alt="RMI" class="brand-rmi-logo">
+                <span class="brand-divider" aria-hidden="true"></span>
+                <img src="logo-carbon-methane.svg" alt="碳索甲烷 Methanepedia" class="brand-logo">
+            </a>
+            <button class="nav-toggle" type="button" aria-label="打开导航菜单" aria-controls="siteNav" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="site-nav" id="siteNav" aria-label="主导航">
+                <a href="index.html" class="nav-link">首页</a>
+                <div class="nav-group">
+                    <a href="about-methane.html" class="nav-link is-active">关于甲烷</a>
+                    <div class="dropdown-menu">
+                        <a href="science.html" aria-current="page">甲烷科学</a>
+                        <a href="benefits.html">控排机遇</a>
+                    </div>
+                </div>
+                <div class="nav-group">
+                    <a href="methane-uses.html" class="nav-link">甲烷应用</a>
+                    <div class="dropdown-menu">
+                        <a href="use-cases.html">应用领域</a>
+                        <a href="recovery.html">回收利用</a>
+                        <a href="clean-alternatives.html">清洁替代</a>
+                    </div>
+                </div>
+                <div class="nav-group">
+                    <a href="issues.html" class="nav-link">行动领域</a>
+                    <div class="dropdown-menu">
+                        <a href="action-technology.html">技术</a>
+                        <a href="action-policy.html">政策</a>
+                        <a href="action-market.html">市场</a>
+                        <a href="action-cooperation.html">国际合作</a>
+                    </div>
+                </div>
+                <a href="insights.html" class="nav-link">研究洞察</a>
+                <a href="data-tools.html" class="nav-link">数据工具</a>
+                <a href="about.html" class="nav-link">关于我们</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="scroll-progress-bar" aria-hidden="true">
+        <div class="scroll-progress-fill" id="scrollProgressFill"></div>
+    </div>
+
+    <main class="main-content">
+        <section class="page-hero">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="面包屑">
+                    <a href="index.html">首页</a><a href="about-methane.html">关于甲烷</a><span>甲烷科学</span>
+                </nav>
+                <p class="eyebrow">Methane Science</p>
+                <h1>甲烷科学</h1>
+                <p>甲烷是一种短寿命、强效温室气体。理解其来源、增温效应和减排路径，是近期气候行动的重要基础。</p>
+            </div>
+        </section>
+
+        <section class="section-band">
+            <div class="container">
+                <div class="science-data-explorer" data-detail-explorer>
+                    <div class="science-data-list" aria-label="甲烷关键指标">
+                        <p class="science-data-note">点击卡片，了解更多内容。</p>
+                        <button class="data-card data-card-trigger is-active" type="button" data-detail-trigger="gwpDetailPanel" aria-controls="gwpDetailPanel" aria-expanded="true" aria-label="查看全球增温潜势详细图表">
+                            <span class="data-number">81.2倍</span>
+                            <span class="data-label">20年尺度甲烷全球增温潜势</span>
+                        </button>
+                        <button class="data-card data-card-trigger" type="button" data-detail-trigger="ghgHistoryPanel" aria-controls="ghgHistoryPanel" aria-expanded="false" aria-label="查看全球温室气体排放历史数据图表">
+                            <span class="data-number">18%</span>
+                            <span class="data-label">甲烷占全球温室气体排放的比例</span>
+                        </button>
+                        <button class="data-card data-card-trigger" type="button" data-detail-trigger="warmingContributionPanel" aria-controls="warmingContributionPanel" aria-expanded="false" aria-label="查看全球地表平均温度升幅贡献图表">
+                            <span class="data-number">1/3</span>
+                            <span class="data-label">甲烷对全球变暖的贡献</span>
+                        </button>
+                    </div>
+
+                    <aside class="data-detail-surface" aria-live="polite">
+                        <div class="detail-placeholder" data-detail-placeholder hidden>
+                            <p class="eyebrow">Global Warming Potential</p>
+                            <h2>全球增温潜势</h2>
+                            <p>各类温室气体的 GWP20、GWP100 与大气寿命数据。</p>
+                        </div>
+
+                        <div class="data-detail-panel is-open" id="gwpDetailPanel" data-detail-panel>
+                            <div class="data-detail-head">
+                                <p class="eyebrow">GWP Comparison</p>
+                                <h2>全球增温潜势对比</h2>
+                                <p>以 CO₂ = 1 为基准，比较不同温室气体在 20 年和 100 年时间尺度上的全球增温潜势及大气寿命。</p>
+                            </div>
+
+                            <div class="gwp-chart" role="img" aria-label="各类温室气体的GWP20、GWP100和寿命对比">
+                                <div class="gwp-chart-legend" aria-hidden="true">
+                                    <span class="gwp-legend-item gwp-legend-20">GWP20</span>
+                                    <span class="gwp-legend-item gwp-legend-100">GWP100</span>
+                                    <span class="gwp-scale-note">条形长度采用对数比例，右侧保留原始数值。</span>
+                                </div>
+
+                                <div class="gwp-chart-grid">
+                                    <article class="gwp-row is-methane" style="--gwp20: 43.7%; --gwp100: 33.3%;">
+                                        <div class="gwp-gas">
+                                            <strong>CH₄</strong>
+                                            <span><span>寿命</span><b>11.8年</b></span>
+                                        </div>
+                                        <div class="gwp-bars">
+                                            <div class="gwp-metric">
+                                                <span>GWP20</span>
+                                                <div class="gwp-track"><i class="gwp-bar gwp-bar-20"></i></div>
+                                                <strong>81.2</strong>
+                                            </div>
+                                            <div class="gwp-metric">
+                                                <span>GWP100</span>
+                                                <div class="gwp-track"><i class="gwp-bar gwp-bar-100"></i></div>
+                                                <strong>27.9</strong>
+                                            </div>
+                                        </div>
+                                    </article>
+
+                                    <details class="methane-gwp-details">
+                                        <summary>不同甲烷排放来源的GWP差异</summary>
+                                        <div class="methane-gwp-detail-body">
+                                            <div class="methane-gwp-mini-grid">
+                                                <article class="methane-gwp-mini-card">
+                                                    <span>CH₄-生物源</span>
+                                                    <strong>GWP20 79.7</strong>
+                                                    <small>GWP100 27 · 寿命 11.8年</small>
+                                                </article>
+                                                <article class="methane-gwp-mini-card">
+                                                    <span>CH₄-化石源，燃烧</span>
+                                                    <strong>GWP20 79.7</strong>
+                                                    <small>GWP100 27 · 寿命 11.8年</small>
+                                                </article>
+                                                <article class="methane-gwp-mini-card is-higher">
+                                                    <span>CH₄-化石源，逸散与过程排放</span>
+                                                    <strong>GWP20 82.5</strong>
+                                                    <small>GWP100 29.8 · 寿命 11.8年</small>
+                                                </article>
+                                            </div>
+                                            <p>甲烷GWP值的差异源于对"甲烷氧化生成CO₂"的核算方式不同。生物源和化石燃烧源的GWP较低，因为其产生的CO₂被视为碳循环一部分或已在能源排放中单独核算；而化石逸散和过程排放因未经历燃烧，其后续氧化生成的CO₂未被其他部门统计，故需采用更高GWP值以涵盖这部分额外增温效应。</p>
+                                        </div>
+                                    </details>
+
+                                    <article class="gwp-row" style="--gwp20: 6.9%; --gwp100: 6.9%;">
+                                        <div class="gwp-gas">
+                                            <strong>CO₂</strong>
+                                            <span><span>寿命</span><b>N/A</b></span>
+                                        </div>
+                                        <div class="gwp-bars">
+                                            <div class="gwp-metric">
+                                                <span>GWP20</span>
+                                                <div class="gwp-track"><i class="gwp-bar gwp-bar-20"></i></div>
+                                                <strong>1</strong>
+                                            </div>
+                                            <div class="gwp-metric">
+                                                <span>GWP100</span>
+                                                <div class="gwp-track"><i class="gwp-bar gwp-bar-100"></i></div>
+                                                <strong>1</strong>
+                                            </div>
+                                        </div>
+                                    </article>
+
+                                    <article class="gwp-row" style="--gwp20: 55.6%; --gwp100: 55.6%;">
+                                        <div class="gwp-gas">
+                                            <strong>N₂O</strong>
+                                            <span><span>寿命</span><b>109年</b></span>
+                                        </div>
+                                        <div class="gwp-bars">
+                                            <div class="gwp-metric">
+                                                <span>GWP20</span>
+                                                <div class="gwp-track"><i class="gwp-bar gwp-bar-20"></i></div>
+                                                <strong>273</strong>
+                                            </div>
+                                            <div class="gwp-metric">
+                                                <span>GWP100</span>
+                                                <div class="gwp-track"><i class="gwp-bar gwp-bar-100"></i></div>
+                                                <strong>273</strong>
+                                            </div>
+                                        </div>
+                                    </article>
+
+                                    <article class="gwp-row" style="--gwp20: 78.2%; --gwp100: 65.8%;">
+                                        <div class="gwp-gas">
+                                            <strong>HFC-32</strong>
+                                            <span><span>寿命</span><b>5.4年</b></span>
+                                        </div>
+                                        <div class="gwp-bars">
+                                            <div class="gwp-metric">
+                                                <span>GWP20</span>
+                                                <div class="gwp-track"><i class="gwp-bar gwp-bar-20"></i></div>
+                                                <strong>2690</strong>
+                                            </div>
+                                            <div class="gwp-metric">
+                                                <span>GWP100</span>
+                                                <div class="gwp-track"><i class="gwp-bar gwp-bar-100"></i></div>
+                                                <strong>771</strong>
+                                            </div>
+                                        </div>
+                                    </article>
+
+                                    <article class="gwp-row" style="--gwp20: 82.5%; --gwp100: 72.6%;">
+                                        <div class="gwp-gas">
+                                            <strong>HFC-134a</strong>
+                                            <span><span>寿命</span><b>14年</b></span>
+                                        </div>
+                                        <div class="gwp-bars">
+                                            <div class="gwp-metric">
+                                                <span>GWP20</span>
+                                                <div class="gwp-track"><i class="gwp-bar gwp-bar-20"></i></div>
+                                                <strong>4144</strong>
+                                            </div>
+                                            <div class="gwp-metric">
+                                                <span>GWP100</span>
+                                                <div class="gwp-track"><i class="gwp-bar gwp-bar-100"></i></div>
+                                                <strong>1526</strong>
+                                            </div>
+                                        </div>
+                                    </article>
+
+                                    <article class="gwp-row" style="--gwp20: 84.9%; --gwp100: 88.2%;">
+                                        <div class="gwp-gas">
+                                            <strong>CF₄</strong>
+                                            <span><span>寿命</span><b>50000年</b></span>
+                                        </div>
+                                        <div class="gwp-bars">
+                                            <div class="gwp-metric">
+                                                <span>GWP20</span>
+                                                <div class="gwp-track"><i class="gwp-bar gwp-bar-20"></i></div>
+                                                <strong>5300</strong>
+                                            </div>
+                                            <div class="gwp-metric">
+                                                <span>GWP100</span>
+                                                <div class="gwp-track"><i class="gwp-bar gwp-bar-100"></i></div>
+                                                <strong>7380</strong>
+                                            </div>
+                                        </div>
+                                    </article>
+
+                                    <article class="gwp-row" style="--gwp20: 93.3%; --gwp100: 95%;">
+                                        <div class="gwp-gas">
+                                            <strong>HFC-23</strong>
+                                            <span><span>寿命</span><b>228年</b></span>
+                                        </div>
+                                        <div class="gwp-bars">
+                                            <div class="gwp-metric">
+                                                <span>GWP20</span>
+                                                <div class="gwp-track"><i class="gwp-bar gwp-bar-20"></i></div>
+                                                <strong>12400</strong>
+                                            </div>
+                                            <div class="gwp-metric">
+                                                <span>GWP100</span>
+                                                <div class="gwp-track"><i class="gwp-bar gwp-bar-100"></i></div>
+                                                <strong>14600</strong>
+                                            </div>
+                                        </div>
+                                    </article>
+
+                                    <article class="gwp-row" style="--gwp20: 97.1%; --gwp100: 100%;">
+                                        <div class="gwp-gas">
+                                            <strong>SF₆</strong>
+                                            <span><span>寿命</span><b>1000年</b></span>
+                                        </div>
+                                        <div class="gwp-bars">
+                                            <div class="gwp-metric">
+                                                <span>GWP20</span>
+                                                <div class="gwp-track"><i class="gwp-bar gwp-bar-20"></i></div>
+                                                <strong>18200</strong>
+                                            </div>
+                                            <div class="gwp-metric">
+                                                <span>GWP100</span>
+                                                <div class="gwp-track"><i class="gwp-bar gwp-bar-100"></i></div>
+                                                <strong>24300</strong>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+
+                            <p class="chart-source">数据来源：IPCC AR6 WG1 Report, Chapter 7 Supplementary Material, Table 7.SM.6</p>
+                        </div>
+
+                        <div class="data-detail-panel" id="ghgHistoryPanel" data-detail-panel hidden>
+                            <div class="data-detail-head">
+                                <p class="eyebrow">GHG Emissions History</p>
+                                <h2>全球温室气体排放历史数据</h2>
+                                <p>1970-2024 年全球主要温室气体排放按 CO₂ 当量统计，显示甲烷在总排放中的占比和变化。</p>
+                            </div>
+
+                            <div class="ghg-dashboard">
+                                <div class="ghg-kpi-row" aria-label="2024年全球温室气体排放关键数据">
+                                    <div class="ghg-kpi">
+                                        <span>2024年总排放</span>
+                                        <strong>53.2</strong>
+                                        <small>Gt CO₂e</small>
+                                    </div>
+                                    <div class="ghg-kpi is-highlight">
+                                        <span>2024年甲烷排放</span>
+                                        <strong>9.5</strong>
+                                        <small>Gt CO₂e</small>
+                                    </div>
+                                    <div class="ghg-kpi is-highlight">
+                                        <span>2024年甲烷占比</span>
+                                        <strong>18%</strong>
+                                    </div>
+                                    <div class="ghg-kpi">
+                                        <span>1970年以来甲烷排放增长</span>
+                                        <strong>62%</strong>
+                                    </div>
+                                </div>
+
+                                <div class="ghg-history-chart" role="img" aria-label="全球温室气体排放历史数据：1970年至2024年，CO₂、CH₄、N₂O和F-gases排放量变化">
+                                    <svg class="ghg-history-svg" viewBox="0 0 760 330" aria-hidden="true" focusable="false">
+                                        <g class="ghg-grid">
+                                            <line x1="58" y1="268" x2="718" y2="268"></line>
+                                            <line x1="58" y1="222.5" x2="718" y2="222.5"></line>
+                                            <line x1="58" y1="177.1" x2="718" y2="177.1"></line>
+                                            <line x1="58" y1="131.6" x2="718" y2="131.6"></line>
+                                            <line x1="58" y1="86.2" x2="718" y2="86.2"></line>
+                                            <line x1="58" y1="40.7" x2="718" y2="40.7"></line>
+                                        </g>
+                                        <g class="ghg-axis-labels">
+                                            <text x="48" y="272">0</text>
+                                            <text x="48" y="226.5">10</text>
+                                            <text x="48" y="181.1">20</text>
+                                            <text x="48" y="135.6">30</text>
+                                            <text x="48" y="90.2">40</text>
+                                            <text x="48" y="44.7">50</text>
+                                            <text x="58" y="302">1970</text>
+                                            <text x="180.2" y="302">1980</text>
+                                            <text x="302.4" y="302">1990</text>
+                                            <text x="424.7" y="302">2000</text>
+                                            <text x="546.9" y="302">2010</text>
+                                            <text x="669.1" y="302">2020</text>
+                                            <text x="718" y="302">2024</text>
+                                        </g>
+                                        <text class="ghg-axis-title" x="58" y="14">排放量（Gt CO₂e）</text>
+                                        <path class="ghg-area ghg-area-co2" d="M 58.0 196.4 L 70.2 196.7 L 82.4 193.1 L 94.7 188.6 L 106.9 188.9 L 119.1 189.2 L 131.3 184.7 L 143.6 182.2 L 155.8 179.5 L 168.0 177.0 L 180.2 178.1 L 192.4 179.8 L 204.7 180.9 L 216.9 180.3 L 229.1 177.4 L 241.3 176.3 L 253.6 174.6 L 265.8 171.6 L 278.0 168.2 L 290.2 166.4 L 302.4 165.0 L 314.7 164.4 L 326.9 164.8 L 339.1 164.3 L 351.3 163.3 L 363.6 160.4 L 375.8 158.2 L 388.0 156.2 L 400.2 155.5 L 412.4 154.6 L 424.7 151.2 L 436.9 149.8 L 449.1 147.9 L 461.3 142.4 L 473.6 136.5 L 485.8 131.6 L 498.0 126.9 L 510.2 121.6 L 522.4 120.7 L 534.7 122.7 L 546.9 113.6 L 559.1 108.7 L 571.3 106.7 L 583.6 103.6 L 595.8 102.6 L 608.0 103.0 L 620.2 102.6 L 632.4 99.7 L 644.7 95.7 L 656.9 95.2 L 669.1 103.4 L 681.3 94.3 L 693.6 92.8 L 705.8 90.2 L 718.0 87.9 L 718.0 268.0 L 705.8 268.0 L 693.6 268.0 L 681.3 268.0 L 669.1 268.0 L 656.9 268.0 L 644.7 268.0 L 632.4 268.0 L 620.2 268.0 L 608.0 268.0 L 595.8 268.0 L 583.6 268.0 L 571.3 268.0 L 559.1 268.0 L 546.9 268.0 L 534.7 268.0 L 522.4 268.0 L 510.2 268.0 L 498.0 268.0 L 485.8 268.0 L 473.6 268.0 L 461.3 268.0 L 449.1 268.0 L 436.9 268.0 L 424.7 268.0 L 412.4 268.0 L 400.2 268.0 L 388.0 268.0 L 375.8 268.0 L 363.6 268.0 L 351.3 268.0 L 339.1 268.0 L 326.9 268.0 L 314.7 268.0 L 302.4 268.0 L 290.2 268.0 L 278.0 268.0 L 265.8 268.0 L 253.6 268.0 L 241.3 268.0 L 229.1 268.0 L 216.9 268.0 L 204.7 268.0 L 192.4 268.0 L 180.2 268.0 L 168.0 268.0 L 155.8 268.0 L 143.6 268.0 L 131.3 268.0 L 119.1 268.0 L 106.9 268.0 L 94.7 268.0 L 82.4 268.0 L 70.2 268.0 L 58.0 268.0 Z"></path>
+                                        <path class="ghg-area ghg-area-ch4" d="M 58.0 169.7 L 70.2 169.7 L 82.4 165.5 L 94.7 160.3 L 106.9 160.4 L 119.1 160.4 L 131.3 155.5 L 143.6 152.6 L 155.8 149.5 L 168.0 146.5 L 180.2 147.7 L 192.4 150.0 L 204.7 150.8 L 216.9 150.0 L 229.1 146.6 L 241.3 145.1 L 253.6 143.0 L 265.8 139.7 L 278.0 135.5 L 290.2 133.0 L 302.4 131.6 L 314.7 131.3 L 326.9 131.6 L 339.1 131.3 L 351.3 129.9 L 363.6 126.6 L 375.8 124.1 L 388.0 122.2 L 400.2 121.9 L 412.4 121.0 L 424.7 117.1 L 436.9 115.7 L 449.1 114.0 L 461.3 107.4 L 473.6 100.9 L 485.8 95.3 L 498.0 90.1 L 510.2 84.5 L 522.4 83.0 L 534.7 85.2 L 546.9 75.3 L 559.1 69.6 L 571.3 67.1 L 583.6 63.9 L 595.8 62.6 L 608.0 63.0 L 620.2 62.4 L 632.4 59.0 L 644.7 54.3 L 656.9 53.5 L 669.1 62.2 L 681.3 52.5 L 693.6 50.3 L 705.8 47.2 L 718.0 44.5 L 718.0 87.9 L 705.8 90.2 L 693.6 92.8 L 681.3 94.3 L 669.1 103.4 L 656.9 95.2 L 644.7 95.7 L 632.4 99.7 L 620.2 102.6 L 608.0 103.0 L 595.8 102.6 L 583.6 103.6 L 571.3 106.7 L 559.1 108.7 L 546.9 113.6 L 534.7 122.7 L 522.4 120.7 L 510.2 121.6 L 498.0 126.9 L 485.8 131.6 L 473.6 136.5 L 461.3 142.4 L 449.1 147.9 L 436.9 149.8 L 424.7 151.2 L 412.4 154.6 L 400.2 155.5 L 388.0 156.2 L 375.8 158.2 L 363.6 160.4 L 351.3 163.3 L 339.1 164.3 L 326.9 164.8 L 314.7 164.4 L 302.4 165.0 L 290.2 166.4 L 278.0 168.2 L 265.8 171.6 L 253.6 174.6 L 241.3 176.3 L 229.1 177.4 L 216.9 180.3 L 204.7 180.9 L 192.4 179.8 L 180.2 178.1 L 168.0 177.0 L 155.8 179.5 L 143.6 182.2 L 131.3 184.7 L 119.1 189.2 L 106.9 188.9 L 94.7 188.6 L 82.4 193.1 L 70.2 196.7 L 58.0 196.4 Z"></path>
+                                        <path class="ghg-area ghg-area-n2o" d="M 58.0 163.1 L 70.2 163.0 L 82.4 158.8 L 94.7 153.3 L 106.9 153.3 L 119.1 153.2 L 131.3 148.1 L 143.6 145.0 L 155.8 141.8 L 168.0 138.6 L 180.2 139.8 L 192.4 142.1 L 204.7 142.8 L 216.9 141.8 L 229.1 138.3 L 241.3 136.9 L 253.6 134.6 L 265.8 131.2 L 278.0 126.9 L 290.2 124.4 L 302.4 123.1 L 314.7 122.8 L 326.9 123.0 L 339.1 122.7 L 351.3 121.2 L 363.6 117.6 L 375.8 114.9 L 388.0 113.2 L 400.2 112.8 L 412.4 111.8 L 424.7 108.0 L 436.9 106.6 L 449.1 104.9 L 461.3 98.1 L 473.6 91.3 L 485.8 85.7 L 498.0 80.3 L 510.2 74.5 L 522.4 73.1 L 534.7 75.2 L 546.9 65.3 L 559.1 59.2 L 571.3 56.6 L 583.6 53.4 L 595.8 52.0 L 608.0 52.3 L 620.2 51.6 L 632.4 48.2 L 644.7 43.5 L 656.9 42.5 L 669.1 51.2 L 681.3 41.4 L 693.6 39.1 L 705.8 35.8 L 718.0 33.0 L 718.0 44.5 L 705.8 47.2 L 693.6 50.3 L 681.3 52.5 L 669.1 62.2 L 656.9 53.5 L 644.7 54.3 L 632.4 59.0 L 620.2 62.4 L 608.0 63.0 L 595.8 62.6 L 583.6 63.9 L 571.3 67.1 L 559.1 69.6 L 546.9 75.3 L 534.7 85.2 L 522.4 83.0 L 510.2 84.5 L 498.0 90.1 L 485.8 95.3 L 473.6 100.9 L 461.3 107.4 L 449.1 114.0 L 436.9 115.7 L 424.7 117.1 L 412.4 121.0 L 400.2 121.9 L 388.0 122.2 L 375.8 124.1 L 363.6 126.6 L 351.3 129.9 L 339.1 131.3 L 326.9 131.6 L 314.7 131.3 L 302.4 131.6 L 290.2 133.0 L 278.0 135.5 L 265.8 139.7 L 253.6 143.0 L 241.3 145.1 L 229.1 146.6 L 216.9 150.0 L 204.7 150.8 L 192.4 150.0 L 180.2 147.7 L 168.0 146.5 L 155.8 149.5 L 143.6 152.6 L 131.3 155.5 L 119.1 160.4 L 106.9 160.4 L 94.7 160.3 L 82.4 165.5 L 70.2 169.7 L 58.0 169.7 Z"></path>
+                                        <path class="ghg-area ghg-area-fgases" d="M 58.0 162.4 L 70.2 162.3 L 82.4 158.0 L 94.7 152.4 L 106.9 152.4 L 119.1 152.3 L 131.3 147.2 L 143.6 144.0 L 155.8 140.7 L 168.0 137.5 L 180.2 138.7 L 192.4 141.0 L 204.7 141.7 L 216.9 140.6 L 229.1 137.0 L 241.3 135.6 L 253.6 133.3 L 265.8 129.8 L 278.0 125.5 L 290.2 122.9 L 302.4 121.4 L 314.7 121.1 L 326.9 121.3 L 339.1 120.9 L 351.3 119.3 L 363.6 115.5 L 375.8 112.6 L 388.0 110.8 L 400.2 110.3 L 412.4 109.3 L 424.7 105.3 L 436.9 103.9 L 449.1 101.8 L 461.3 95.0 L 473.6 87.9 L 485.8 82.0 L 498.0 76.7 L 510.2 71.0 L 522.4 69.6 L 534.7 71.7 L 546.9 61.5 L 559.1 55.2 L 571.3 52.4 L 583.6 48.9 L 595.8 47.3 L 608.0 47.8 L 620.2 46.8 L 632.4 43.1 L 644.7 38.2 L 656.9 37.0 L 669.1 45.4 L 681.3 35.3 L 693.6 32.8 L 705.8 29.2 L 718.0 26.2 L 718.0 33.0 L 705.8 35.8 L 693.6 39.1 L 681.3 41.4 L 669.1 51.2 L 656.9 42.5 L 644.7 43.5 L 632.4 48.2 L 620.2 51.6 L 608.0 52.3 L 595.8 52.0 L 583.6 53.4 L 571.3 56.6 L 559.1 59.2 L 546.9 65.3 L 534.7 75.2 L 522.4 73.1 L 510.2 74.5 L 498.0 80.3 L 485.8 85.7 L 473.6 91.3 L 461.3 98.1 L 449.1 104.9 L 436.9 106.6 L 424.7 108.0 L 412.4 111.8 L 400.2 112.8 L 388.0 113.2 L 375.8 114.9 L 363.6 117.6 L 351.3 121.2 L 339.1 122.7 L 326.9 123.0 L 314.7 122.8 L 302.4 123.1 L 290.2 124.4 L 278.0 126.9 L 265.8 131.2 L 253.6 134.6 L 241.3 136.9 L 229.1 138.3 L 216.9 141.8 L 204.7 142.8 L 192.4 142.1 L 180.2 139.8 L 168.0 138.6 L 155.8 141.8 L 143.6 145.0 L 131.3 148.1 L 119.1 153.2 L 106.9 153.3 L 94.7 153.3 L 82.4 158.8 L 70.2 163.0 L 58.0 163.1 Z"></path>
+                                        <path class="ghg-total-line" d="M 58.0 162.4 L 70.2 162.3 L 82.4 158.0 L 94.7 152.4 L 106.9 152.4 L 119.1 152.3 L 131.3 147.2 L 143.6 144.0 L 155.8 140.7 L 168.0 137.5 L 180.2 138.7 L 192.4 141.0 L 204.7 141.7 L 216.9 140.6 L 229.1 137.0 L 241.3 135.6 L 253.6 133.3 L 265.8 129.8 L 278.0 125.5 L 290.2 122.9 L 302.4 121.4 L 314.7 121.1 L 326.9 121.3 L 339.1 120.9 L 351.3 119.3 L 363.6 115.5 L 375.8 112.6 L 388.0 110.8 L 400.2 110.3 L 412.4 109.3 L 424.7 105.3 L 436.9 103.9 L 449.1 101.8 L 461.3 95.0 L 473.6 87.9 L 485.8 82.0 L 498.0 76.7 L 510.2 71.0 L 522.4 69.6 L 534.7 71.7 L 546.9 61.5 L 559.1 55.2 L 571.3 52.4 L 583.6 48.9 L 595.8 47.3 L 608.0 47.8 L 620.2 46.8 L 632.4 43.1 L 644.7 38.2 L 656.9 37.0 L 669.1 45.4 L 681.3 35.3 L 693.6 32.8 L 705.8 29.2 L 718.0 26.2"></path>
+                                    </svg>
+                                </div>
+
+                                <div class="ghg-chart-legend" aria-label="温室气体排放图例">
+                                    <span class="ghg-legend-item ghg-legend-co2">CO₂</span>
+                                    <span class="ghg-legend-item ghg-legend-ch4">CH₄</span>
+                                    <span class="ghg-legend-item ghg-legend-n2o">N₂O</span>
+                                    <span class="ghg-legend-item ghg-legend-fgases">F-gases</span>
+                                </div>
+                            </div>
+
+                            <p class="chart-source">数据来源：Crippa, M. et al., GHG emissions of all world countries - 2025 Report</p>
+                        </div>
+
+                        <div class="data-detail-panel" id="warmingContributionPanel" data-detail-panel hidden>
+                            <div class="data-detail-head">
+                                <p class="eyebrow">GSAT Contribution</p>
+                                <h2>全球地表平均温度升幅贡献</h2>
+                                <p>1750-2019 年各类温室气体和气候强迫因子对全球地表平均温度（GSAT）变化的贡献，正值表示升温贡献，负值表示降温效应。</p>
+                            </div>
+
+                            <div class="gsat-dashboard">
+                                <div class="gsat-summary-row" aria-label="全球地表平均温度升幅贡献关键数据">
+                                    <div class="gsat-summary-card is-highlight">
+                                        <span>甲烷温升贡献</span>
+                                        <strong>0.595℃</strong>
+                                        <small>约占正向升温贡献的 29%</small>
+                                    </div>
+                                    <div class="gsat-summary-card">
+                                        <span>CO₂温升贡献</span>
+                                        <strong>0.951℃</strong>
+                                        <small>最大单项升温贡献</small>
+                                    </div>
+                                </div>
+
+                                <div class="gsat-chart" role="img" aria-label="1750年至2019年各类温室气体和气候强迫因子对全球地表平均温度升幅的贡献">
+                                    <div class="gsat-axis-row" aria-hidden="true">
+                                        <span>-1℃</span>
+                                        <span>-0.75℃</span>
+                                        <span>-0.5℃</span>
+                                        <span>-0.25℃</span>
+                                        <span>0</span>
+                                        <span>+0.25℃</span>
+                                        <span>+0.5℃</span>
+                                        <span>+0.75℃</span>
+                                        <span>+1℃</span>
+                                    </div>
+
+                                    <div class="gsat-bars">
+                                        <article class="gsat-row is-positive" style="--bar-width: 47.6%;">
+                                            <span class="gsat-name">CO₂</span>
+                                            <div class="gsat-track"><i class="gsat-bar"></i></div>
+                                            <strong>+0.95℃</strong>
+                                        </article>
+                                        <article class="gsat-row is-positive is-methane" style="--bar-width: 29.8%;">
+                                            <span class="gsat-name">CH₄</span>
+                                            <div class="gsat-track"><i class="gsat-bar"></i></div>
+                                            <strong>+0.60℃</strong>
+                                        </article>
+                                        <article class="gsat-row is-positive" style="--bar-width: 5.4%;">
+                                            <span class="gsat-name">N₂O</span>
+                                            <div class="gsat-track"><i class="gsat-bar"></i></div>
+                                            <strong>+0.11℃</strong>
+                                        </article>
+                                        <article class="gsat-row is-positive" style="--bar-width: 5.1%;">
+                                            <span class="gsat-name">CFC+HCFC+HFC</span>
+                                            <div class="gsat-track"><i class="gsat-bar"></i></div>
+                                            <strong>+0.10℃</strong>
+                                        </article>
+                                        <article class="gsat-row is-negative" style="--bar-width: 6.8%;">
+                                            <span class="gsat-name">NOₓ</span>
+                                            <div class="gsat-track"><i class="gsat-bar"></i></div>
+                                            <strong>-0.14℃</strong>
+                                        </article>
+                                        <article class="gsat-row is-positive" style="--bar-width: 12.4%;">
+                                            <span class="gsat-name">NMVOC+CO</span>
+                                            <div class="gsat-track"><i class="gsat-bar"></i></div>
+                                            <strong>+0.25℃</strong>
+                                        </article>
+                                        <article class="gsat-row is-negative" style="--bar-width: 23.4%;">
+                                            <span class="gsat-name">SO₂</span>
+                                            <div class="gsat-track"><i class="gsat-bar"></i></div>
+                                            <strong>-0.47℃</strong>
+                                        </article>
+                                        <article class="gsat-row is-negative" style="--bar-width: 4.7%;">
+                                            <span class="gsat-name">有机碳</span>
+                                            <div class="gsat-track"><i class="gsat-bar"></i></div>
+                                            <strong>-0.09℃</strong>
+                                        </article>
+                                        <article class="gsat-row is-positive" style="--bar-width: 3.2%;">
+                                            <span class="gsat-name">黑碳</span>
+                                            <div class="gsat-track"><i class="gsat-bar"></i></div>
+                                            <strong>+0.06℃</strong>
+                                        </article>
+                                        <article class="gsat-row is-negative" style="--bar-width: 0.8%;">
+                                            <span class="gsat-name">氨</span>
+                                            <div class="gsat-track"><i class="gsat-bar"></i></div>
+                                            <strong>-0.02℃</strong>
+                                        </article>
+                                    </div>
+
+                                    <div class="gsat-legend" aria-label="温升贡献图例">
+                                        <span class="gsat-legend-item gsat-legend-positive">升温贡献</span>
+                                        <span class="gsat-legend-item gsat-legend-negative">降温效应</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="chart-source">数据来源：IPCC AR6 WG1 Report, Chapter 6 Supplementary Material, Table 6.SM.2</p>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-band section-band-muted">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Emission Sources</p>
+                    <h2>排放源</h2>
+                    <p>甲烷排放既来自自然系统，也来自能源供应、农业生产、废弃物处理等人为活动。</p>
+                </div>
+
+                <div class="source-layout">
+                    <details class="source-box source-disclosure">
+                        <summary>
+                            <div>
+                                <h3>自然源</h3>
+                                <p>自然生态系统是重要的甲烷排放源。</p>
+                            </div>
+                            <span class="source-toggle" aria-hidden="true"></span>
+                        </summary>
+                        <div class="source-detail-list">
+                            <article>
+                                <h4>湿地</h4>
+                                <p>湿地的缺氧条件促使产甲烷菌分解有机质排放甲烷。研究表明，全球变暖背景下湿地的甲烷排放将会增加。</p>
+                            </article>
+                            <article>
+                                <h4>淡水</h4>
+                                <p>湖泊和河流的厌氧环境下，有机质也会经厌氧发酵排放甲烷。</p>
+                            </article>
+                            <article>
+                                <h4>树木</h4>
+                                <p>旱地和湿地森林中的树木通过非生物过程、内部产甲烷作用生成甲烷并排放。</p>
+                            </article>
+                            <article>
+                                <h4>冻土</h4>
+                                <p>多年冻土融化会释放出不稳定的有机碳，随后产生甲烷。</p>
+                            </article>
+                            <article>
+                                <h4>其他陆地源</h4>
+                                <p>白蚁、野生动物也会产生甲烷排放。</p>
+                            </article>
+                        </div>
+                    </details>
+                    <details class="source-box source-disclosure">
+                        <summary>
+                            <div>
+                                <h3>人为源</h3>
+                                <p>人为甲烷排放来自于能源、农业和废弃物领域。</p>
+                            </div>
+                            <span class="source-toggle" aria-hidden="true"></span>
+                        </summary>
+                        <div class="source-detail-list">
+                            <article>
+                                <h4>能源</h4>
+                                <p>在煤炭开采以及石油和天然气的生产与运输过程中发生的逸散性，是能源供应领域甲烷排放的主要来源。生物质的不完全燃烧也会产生甲烷排放。</p>
+                            </article>
+                            <article>
+                                <h4>农业</h4>
+                                <p>反刍动物（牛、羊等）的肠道发酵、淹水条件下的稻田、动物粪便的储存和处理过程都会产生甲烷排放。</p>
+                            </article>
+                            <article>
+                                <h4>废弃物</h4>
+                                <p>城市固体废弃物填埋场和市政污水的处理过程，会因厌氧条件而产生甲烷排放。</p>
+                            </article>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="chart-panel methane-source-chart-panel">
+                    <div class="panel-heading">
+                        <p class="eyebrow">2010-2019年全球甲烷年均排放</p>
+                        <h3>甲烷排放源构成</h3>
+                    </div>
+                    <div class="source-share-chart source-stacked-chart" aria-label="2010-2019年全球甲烷年均排放源构成">
+                        <div class="stacked-bar-wrap">
+                            <div class="stacked-bar-track">
+                                <span class="sb-seg sb-seg-wetland" style="--share: 37.0%;" data-name="湿地和内陆淡水" data-value="248 Mt CH₄/年" data-value-en="248 Mt CH₄/year"></span>
+                                <span class="sb-seg sb-seg-other-natural" style="--share: 9.4%;" data-name="其他自然排放" data-value="63 Mt CH₄/年" data-value-en="63 Mt CH₄/year"></span>
+                                <span class="sb-seg sb-seg-fossil" style="--share: 17.9%;" data-name="化石燃料生产和消费" data-value="120 Mt CH₄/年" data-value-en="120 Mt CH₄/year"></span>
+                                <span class="sb-seg sb-seg-agriwaste" style="--share: 31.5%;" data-name="农业和废弃物" data-value="211 Mt CH₄/年" data-value-en="211 Mt CH₄/year"></span>
+                                <span class="sb-seg sb-seg-biomass" style="--share: 4.2%;" data-name="生物质燃烧" data-value="28 Mt CH₄/年" data-value-en="28 Mt CH₄/year"></span>
+                            </div>
+                        </div>
+                        <div class="stacked-bar-labels">
+                            <span class="sb-label sb-label-wetland"><span class="sb-dot" aria-hidden="true"></span>湿地和内陆淡水 <strong>37.0%</strong></span>
+                            <span class="sb-label sb-label-other-natural"><span class="sb-dot" aria-hidden="true"></span>其他自然排放 <strong>9.4%</strong></span>
+                            <span class="sb-label sb-label-fossil"><span class="sb-dot" aria-hidden="true"></span>化石燃料生产和消费 <strong>17.9%</strong></span>
+                            <span class="sb-label sb-label-agriwaste"><span class="sb-dot" aria-hidden="true"></span>农业和废弃物 <strong>31.5%</strong></span>
+                            <span class="sb-label sb-label-biomass"><span class="sb-dot" aria-hidden="true"></span>生物质燃烧 <strong>4.2%</strong></span>
+                        </div>
+                        <div class="source-share-legend source-share-legend-stacked" aria-label="排放源类型图例">
+                            <span class="source-share-legend-natural">自然源</span>
+                            <span class="source-share-legend-human">人为源</span>
+                        </div>
+                    </div>
+                    <p class="chart-source">数据来源：<a href="https://www.icos-cp.eu/GCP-CH4-2024" target="_blank" rel="noopener noreferrer">Global Methane Budget 2024</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-band">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Pathways</p>
+                    <h2>转型路径</h2>
+                    <p>为实现《巴黎协定》全球温升控制目标，需有效控制并减少甲烷排放。</p>
+                </div>
+
+                <div class="interactive-chart-container">
+                    <div class="chart-and-legend">
+                        <div class="chart-wrapper" id="lineChartContainer"></div>
+                        <div class="chart-legend" id="chartLegend"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo-row">
+                    <img src="RMI white logo.png" alt="RMI" class="footer-rmi-logo-white">
+                    <span class="footer-logo-divider" aria-hidden="true"></span>
+                    <img src="logo-carbon-methane-text-white.svg" alt="碳索甲烷 Methanepedia" class="footer-methane-logo-white">
+                </div>
+                <p>碳索甲烷Methanepedia面向公众、研究者与行动者，致力于连接科学事实与气候行动。</p>
+            </div>
+            <div class="footer-column">
+                <h2>关于甲烷</h2>
+                <a href="science.html">甲烷科学</a>
+                <a href="benefits.html">控排机遇</a>
+            </div>
+            <div class="footer-column">
+                <h2>甲烷应用</h2>
+                <a href="use-cases.html">应用领域</a>
+                <a href="recovery.html">回收利用</a>
+                <a href="clean-alternatives.html">清洁替代</a>
+            </div>
+            <div class="footer-column">
+                <h2>行动领域</h2>
+                <a href="action-technology.html">技术</a>
+                <a href="action-policy.html">政策</a>
+                <a href="action-market.html">市场</a>
+                <a href="action-cooperation.html">国际合作</a>
+            </div>
+            <div class="footer-column">
+                <h2>相关资源</h2>
+                <a href="insights.html">研究洞察</a>
+                <a href="data-tools.html">数据工具</a>
+                <a href="about.html">关于我们</a>
+            </div>
+            <div class="footer-column footer-follow">
+                <h2>关注我们</h2>
+                <img src="RMI QR code.jpg" alt="RMI公众号二维码" class="footer-qr">
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <span>版权所有：RMI</span>
+            <div class="footer-sites">
+                <a href="https://rmi.org/" target="_blank" rel="noopener noreferrer">RMI全球网站：rmi.org</a>
+                <a href="https://rmi.org.cn/" target="_blank" rel="noopener noreferrer">RMI中文网站：rmi.org.cn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof d3 === 'undefined') {
+                const container = document.getElementById('lineChartContainer');
+                if (container) {
+                    container.innerHTML = '<p class="chart-error">图表加载失败：无法获取 D3.js 库。</p>';
+                }
+                return;
+            }
+
+            const container = document.getElementById('lineChartContainer');
+            const legendContainer = document.getElementById('chartLegend');
+            if (!container || !legendContainer) return;
+
+            const chartData = {
+                title: "全球甲烷排放长期展望 (2015-2100)",
+                xLabel: "年份",
+                yLabel: "排放量（百万吨/年）",
+                series: [
+                    {
+                        name: "低于3度情景",
+                        data: [
+                            { year: 2015, value: 388.1 },
+                            { year: 2020, value: 394.1 },
+                            { year: 2025, value: 365.9 },
+                            { year: 2030, value: 351.8 },
+                            { year: 2035, value: 327.6 },
+                            { year: 2040, value: 305.9 },
+                            { year: 2045, value: 280.3 },
+                            { year: 2050, value: 263.4 },
+                            { year: 2055, value: 250.5 },
+                            { year: 2060, value: 236.8 },
+                            { year: 2065, value: 226.9 },
+                            { year: 2070, value: 213.3 },
+                            { year: 2075, value: 205.2 },
+                            { year: 2080, value: 198.2 },
+                            { year: 2085, value: 190.5 },
+                            { year: 2090, value: 182.1 },
+                            { year: 2095, value: 172.4 },
+                            { year: 2100, value: 165.0 }
+                        ],
+                        color: "#12b8b3"
+                    },
+                    {
+                        name: "低于2度情景",
+                        data: [
+                            { year: 2015, value: 388.1 },
+                            { year: 2020, value: 394.1 },
+                            { year: 2025, value: 349.6 },
+                            { year: 2030, value: 326.4 },
+                            { year: 2035, value: 276.6 },
+                            { year: 2040, value: 252.9 },
+                            { year: 2045, value: 231.1 },
+                            { year: 2050, value: 212.0 },
+                            { year: 2055, value: 204.8 },
+                            { year: 2060, value: 200.7 },
+                            { year: 2065, value: 194.9 },
+                            { year: 2070, value: 189.2 },
+                            { year: 2075, value: 185.3 },
+                            { year: 2080, value: 180.5 },
+                            { year: 2085, value: 177.0 },
+                            { year: 2090, value: 172.5 },
+                            { year: 2095, value: 168.1 },
+                            { year: 2100, value: 164.2 }
+                        ],
+                        color: "#003b63"
+                    },
+                    {
+                        name: "低于1.5度情景",
+                        data: [
+                            { year: 2015, value: 388.1 },
+                            { year: 2020, value: 385.8 },
+                            { year: 2025, value: 322.6 },
+                            { year: 2030, value: 279.9 },
+                            { year: 2035, value: 244.9 },
+                            { year: 2040, value: 226.4 },
+                            { year: 2045, value: 209.2 },
+                            { year: 2050, value: 197.8 },
+                            { year: 2055, value: 189.5 },
+                            { year: 2060, value: 179.7 },
+                            { year: 2065, value: 172.9 },
+                            { year: 2070, value: 162.7 },
+                            { year: 2075, value: 152.1 },
+                            { year: 2080, value: 145.2 },
+                            { year: 2085, value: 140.8 },
+                            { year: 2090, value: 137.6 },
+                            { year: 2095, value: 132.4 },
+                            { year: 2100, value: 130.8 }
+                        ],
+                        color: "#f15a24"
+                    }
+                ]
+            };
+
+            const margin = { top: 58, right: 24, bottom: 64, left: 72 };
+            const outerWidth = 820;
+            const outerHeight = 420;
+            const width = outerWidth - margin.left - margin.right;
+            const height = outerHeight - margin.top - margin.bottom;
+
+            const svg = d3.select("#lineChartContainer")
+                .append("svg")
+                .attr("class", "chart-svg")
+                .attr("viewBox", `0 0 ${outerWidth} ${outerHeight}`)
+                .attr("role", "img")
+                .attr("aria-label", chartData.title)
+                .append("g")
+                .attr("transform", `translate(${margin.left},${margin.top})`);
+
+            const allValues = chartData.series.flatMap(series => series.data.map(d => d.value));
+            const allYears = chartData.series.flatMap(series => series.data.map(d => d.year));
+
+            const xScale = d3.scaleLinear()
+                .domain([d3.min(allYears), d3.max(allYears)])
+                .range([0, width]);
+
+            const yScale = d3.scaleLinear()
+                .domain([d3.min(allValues) * 0.9, d3.max(allValues) * 1.06])
+                .range([height, 0]);
+
+            const xAxis = d3.axisBottom(xScale).tickFormat(d3.format("d")).ticks(7);
+            const yAxis = d3.axisLeft(yScale).ticks(6);
+
+            svg.append("g")
+                .attr("class", "grid")
+                .attr("transform", `translate(0,${height})`)
+                .call(d3.axisBottom(xScale).ticks(7).tickSize(-height).tickFormat(""));
+
+            svg.append("g")
+                .attr("class", "grid")
+                .call(d3.axisLeft(yScale).ticks(6).tickSize(-width).tickFormat(""));
+
+            svg.append("g")
+                .attr("class", "axis")
+                .attr("transform", `translate(0,${height})`)
+                .call(xAxis);
+
+            svg.append("g")
+                .attr("class", "axis")
+                .call(yAxis);
+
+            svg.append("text")
+                .attr("class", "chart-title-text")
+                .attr("x", width / 2)
+                .attr("y", -24)
+                .attr("text-anchor", "middle")
+                .text(chartData.title);
+
+            svg.append("text")
+                .attr("class", "axis-label")
+                .attr("x", width / 2)
+                .attr("y", height + 46)
+                .attr("text-anchor", "middle")
+                .text(chartData.xLabel);
+
+            svg.append("text")
+                .attr("class", "axis-label")
+                .attr("transform", "rotate(-90)")
+                .attr("y", -52)
+                .attr("x", -height / 2)
+                .attr("text-anchor", "middle")
+                .text(chartData.yLabel);
+
+            const line = d3.line()
+                .x(d => xScale(d.year))
+                .y(d => yScale(d.value))
+                .curve(d3.curveMonotoneX);
+
+            const tooltip = d3.select("body").append("div")
+                .attr("class", "tooltip")
+                .style("opacity", 0);
+
+            chartData.series.forEach(series => {
+                svg.append("path")
+                    .datum(series.data)
+                    .attr("class", "line")
+                    .attr("stroke", series.color)
+                    .attr("d", line);
+
+                svg.append("g")
+                    .selectAll(".dot")
+                    .data(series.data)
+                    .enter()
+                    .append("circle")
+                    .attr("class", "dot")
+                    .attr("cx", d => xScale(d.year))
+                    .attr("cy", d => yScale(d.value))
+                    .attr("fill", series.color)
+                    .on("mouseover", function(event, d) {
+                        tooltip.transition().duration(160).style("opacity", 1);
+                        tooltip.html(`${series.name}<br>${d.year}: ${d.value} 百万吨/年`)
+                            .style("left", `${event.pageX - 18}px`)
+                            .style("top", `${event.pageY - 54}px`);
+                    })
+                    .on("mouseout", function() {
+                        tooltip.transition().duration(260).style("opacity", 0);
+                    });
+
+                const legendItem = d3.select("#chartLegend")
+                    .append("div")
+                    .attr("class", "legend-item");
+
+                legendItem.append("span")
+                    .attr("class", "legend-color")
+                    .style("background-color", series.color);
+
+                legendItem.append("span").text(series.name);
+            });
+        });
+    </script>
+</body>
+</html>
